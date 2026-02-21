@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FleetFlow — Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app-loader"><div class="loader-spinner"></div></div>
+
+  <nav>
+    <a class="nav-brand" href="index.html">
+      <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#3b82f6"/><path d="M7 22V12l4-4h10l4 4v10" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="2.5" fill="#fff"/><circle cx="21" cy="22" r="2.5" fill="#fff"/><line x1="13.5" y1="22" x2="18.5" y2="22" stroke="#fff" stroke-width="2"/><rect x="12" y="11" width="8" height="5" rx="1" fill="rgba(255,255,255,.3)"/></svg>
+      <span class="nav-brand-text">FleetFlow</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="active">📊 Dashboard</a>
+      <a href="vehicles.html">🚚 Vehicles</a>
+      <a href="drivers.html">👨 Drivers</a>
+      <a href="trips.html">📦 Trips</a>
+    </div>
+    <div class="nav-right">
+      <div class="nav-role" id="navRole"></div>
+      <span class="nav-user" id="navUser"></span>
+      <button class="btn-logout" onclick="doLogout()">Logout</button>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1 class="page-title">Dashboard</h1>
+
+    <div class="role-welcome" id="roleWelcome"></div>
+
+    <div class="cards">
+      <div class="card blue">
+        <div class="card-icon">🚛</div>
+        <div class="card-value" id="totalVehicles">0</div>
+        <div class="card-label">Total Vehicles</div>
+      </div>
+      <div class="card green">
+        <div class="card-icon">✅</div>
+        <div class="card-value" id="availableVehicles">0</div>
+        <div class="card-label">Available Vehicles</div>
+      </div>
+      <div class="card orange">
+        <div class="card-icon">🔄</div>
+        <div class="card-value" id="onTripVehicles">0</div>
+        <div class="card-label">Vehicles On Trip</div>
+      </div>
+      <div class="card purple">
+        <div class="card-icon">👤</div>
+        <div class="card-value" id="totalDrivers">0</div>
+        <div class="card-label">Total Drivers</div>
+      </div>
+      <div class="card cyan">
+        <div class="card-icon">🟢</div>
+        <div class="card-value" id="availableDrivers">0</div>
+        <div class="card-label">Available Drivers</div>
+      </div>
+      <div class="card teal">
+        <div class="card-icon">📦</div>
+        <div class="card-value" id="totalTrips">0</div>
+        <div class="card-label">Total Trips</div>
+      </div>
+      <div class="card slate">
+        <div class="card-icon">⚡</div>
+        <div class="card-value" id="activeTrips">0</div>
+        <div class="card-label">Active Trips</div>
+      </div>
+      <div class="card rose">
+        <div class="card-icon">📈</div>
+        <div class="card-value" id="fleetUtilization">0%</div>
+        <div class="card-label">Fleet Utilization</div>
+        <div class="progress-wrap">
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="utilizationBar" style="width:0%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dash-grid">
+      <div class="panel">
+        <h2>🏆 Most Used Vehicle</h2>
+        <div id="mostUsedVehicle">
+          <span class="highlight-value">—</span>
+          <div class="highlight-sub">No trips yet</div>
+        </div>
+      </div>
+      <div class="panel">
+        <h2>🕐 Recent Trip Activity</h2>
+        <div id="recentTrips">
+          <div class="empty-state">
+            <div class="empty-icon">📃</div>
+            <div class="empty-text">No recent activity</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

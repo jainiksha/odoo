@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FleetFlow — Login</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app-loader"><div class="loader-spinner"></div></div>
+
+  <div class="login-page">
+    <div class="login-card" id="loginCard">
+      <div class="login-logo">
+        <svg width="40" height="40" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="32" height="32" rx="8" fill="#3b82f6"/>
+          <path d="M7 22V12l4-4h10l4 4v10" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="11" cy="22" r="2.5" fill="#fff"/>
+          <circle cx="21" cy="22" r="2.5" fill="#fff"/>
+          <line x1="13.5" y1="22" x2="18.5" y2="22" stroke="#fff" stroke-width="2"/>
+          <rect x="12" y="11" width="8" height="5" rx="1" fill="rgba(255,255,255,.3)"/>
+        </svg>
+        <span class="login-logo-text">FleetFlow</span>
+      </div>
+      <p class="login-subtitle">Fleet &amp; Logistics Management System</p>
+
+      <div class="form-group">
+        <label for="loginName">Your Name</label>
+        <input type="text" id="loginName" placeholder="e.g. Sarah Johnson" />
+      </div>
+      <div class="form-group">
+        <label for="loginRole">Select Role</label>
+        <select id="loginRole">
+          <option value="">-- Choose your role --</option>
+          <option value="manager">🛡️ Fleet Manager — Full Access</option>
+          <option value="dispatcher">📋 Dispatcher — Manage Trips</option>
+          <option value="analyst">📊 Analyst — View &amp; Export Only</option>
+        </select>
+      </div>
+
+      <button class="login-btn" onclick="doLogin()">Sign In</button>
+      <p class="login-footer">Demo — no password required</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

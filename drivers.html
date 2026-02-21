@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FleetFlow — Drivers</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app-loader"><div class="loader-spinner"></div></div>
+
+  <nav>
+    <a class="nav-brand" href="index.html">
+      <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#3b82f6"/><path d="M7 22V12l4-4h10l4 4v10" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="2.5" fill="#fff"/><circle cx="21" cy="22" r="2.5" fill="#fff"/><line x1="13.5" y1="22" x2="18.5" y2="22" stroke="#fff" stroke-width="2"/><rect x="12" y="11" width="8" height="5" rx="1" fill="rgba(255,255,255,.3)"/></svg>
+      <span class="nav-brand-text">FleetFlow</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">📊 Dashboard</a>
+      <a href="vehicles.html">🚚 Vehicles</a>
+      <a href="drivers.html" class="active">👨 Drivers</a>
+      <a href="trips.html">📦 Trips</a>
+    </div>
+    <div class="nav-right">
+      <div class="nav-role" id="navRole"></div>
+      <span class="nav-user" id="navUser"></span>
+      <button class="btn-logout" onclick="doLogout()">Logout</button>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1 class="page-title">Drivers</h1>
+
+    <div class="form-panel" id="driverFormPanel">
+      <h2>Add New Driver</h2>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="driverName">Driver Name</label>
+          <input type="text" id="driverName" placeholder="e.g. John Smith" />
+        </div>
+        <div class="form-group">
+          <label for="licenseNumber">License Number</label>
+          <input type="text" id="licenseNumber" placeholder="e.g. DL-9876543" />
+        </div>
+        <button class="btn btn-primary" onclick="addDriver()">+ Add Driver</button>
+      </div>
+    </div>
+
+    <div class="table-panel">
+      <div class="table-header">
+        <h2>Driver List</h2>
+        <div class="search-bar">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="driverSearch" placeholder="Search by name..." />
+        </div>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Driver Name</th>
+            <th>License Number</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="driverTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

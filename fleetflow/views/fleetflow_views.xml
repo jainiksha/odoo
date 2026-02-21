@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ==================== VEHICLE ==================== -->
+
+    <record id="fleetflow_vehicle_view_tree" model="ir.ui.view">
+        <field name="name">fleetflow.vehicle.tree</field>
+        <field name="model">fleetflow.vehicle</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="license_plate"/>
+                <field name="max_capacity"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="fleetflow_vehicle_view_form" model="ir.ui.view">
+        <field name="name">fleetflow.vehicle.form</field>
+        <field name="model">fleetflow.vehicle</field>
+        <field name="arch" type="xml">
+            <form string="Vehicle">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="license_plate"/>
+                        </group>
+                        <group>
+                            <field name="max_capacity"/>
+                            <field name="status"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="fleetflow_vehicle_action" model="ir.actions.act_window">
+        <field name="name">Vehicles</field>
+        <field name="res_model">fleetflow.vehicle</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- ==================== DRIVER ==================== -->
+
+    <record id="fleetflow_driver_view_tree" model="ir.ui.view">
+        <field name="name">fleetflow.driver.tree</field>
+        <field name="model">fleetflow.driver</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="license_number"/>
+                <field name="license_expiry"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="fleetflow_driver_view_form" model="ir.ui.view">
+        <field name="name">fleetflow.driver.form</field>
+        <field name="model">fleetflow.driver</field>
+        <field name="arch" type="xml">
+            <form string="Driver">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="license_number"/>
+                        </group>
+                        <group>
+                            <field name="license_expiry"/>
+                            <field name="status"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="fleetflow_driver_action" model="ir.actions.act_window">
+        <field name="name">Drivers</field>
+        <field name="res_model">fleetflow.driver</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- ==================== TRIP ==================== -->
+
+    <record id="fleetflow_trip_view_tree" model="ir.ui.view">
+        <field name="name">fleetflow.trip.tree</field>
+        <field name="model">fleetflow.trip</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="vehicle_id"/>
+                <field name="driver_id"/>
+                <field name="cargo_weight"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="fleetflow_trip_view_form" model="ir.ui.view">
+        <field name="name">fleetflow.trip.form</field>
+        <field name="model">fleetflow.trip</field>
+        <field name="arch" type="xml">
+            <form string="Trip">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="vehicle_id"/>
+                            <field name="driver_id"/>
+                        </group>
+                        <group>
+                            <field name="cargo_weight"/>
+                            <field name="status"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="fleetflow_trip_action" model="ir.actions.act_window">
+        <field name="name">Trips</field>
+        <field name="res_model">fleetflow.trip</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- ==================== MENUS ==================== -->
+
+    <menuitem id="fleetflow_menu_root"
+              name="FleetFlow"
+              sequence="10"/>
+
+    <menuitem id="fleetflow_menu_vehicles"
+              name="Vehicles"
+              parent="fleetflow_menu_root"
+              action="fleetflow_vehicle_action"
+              sequence="1"/>
+
+    <menuitem id="fleetflow_menu_drivers"
+              name="Drivers"
+              parent="fleetflow_menu_root"
+              action="fleetflow_driver_action"
+              sequence="2"/>
+
+    <menuitem id="fleetflow_menu_trips"
+              name="Trips"
+              parent="fleetflow_menu_root"
+              action="fleetflow_trip_action"
+              sequence="3"/>
+
+</odoo>
